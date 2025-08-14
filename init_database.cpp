@@ -9,7 +9,7 @@ int main() {
         return 1;
     }
 
-    const char* createTableSQL = 
+    const char* createTableSQL =
         "CREATE TABLE IF NOT EXISTS products ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
         "barcode TEXT NOT NULL UNIQUE,"
@@ -24,14 +24,13 @@ int main() {
         return 1;
     }
 
-    // Очистка существующих данных (опционально)
+
     const char* deleteDataSQL = "DELETE FROM products;";
     if (sqlite3_exec(db, deleteDataSQL, nullptr, nullptr, &errMsg) != SQLITE_OK) {
         std::cerr << "SQL error: " << errMsg << std::endl;
         sqlite3_free(errMsg);
     }
 
-    // Сброс автоинкремента (опционально)
     const char* resetSeqSQL = "DELETE FROM sqlite_sequence WHERE name='products';";
     if (sqlite3_exec(db, resetSeqSQL, nullptr, nullptr, &errMsg) != SQLITE_OK) {
         std::cerr << "SQL error: " << errMsg << std::endl;

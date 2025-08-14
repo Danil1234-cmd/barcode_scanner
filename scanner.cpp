@@ -89,15 +89,15 @@ int main() {
     sqlite3_bind_text(stmt, 1, barcode.c_str(), -1, SQLITE_STATIC);
 
     if (sqlite3_step(stmt) == SQLITE_ROW) {
-       // Получаем данные из колонок
+
        int id = sqlite3_column_int(stmt, 0);
        const unsigned char* productName = sqlite3_column_text(stmt, 1);
        double price = sqlite3_column_double(stmt, 2);
 
-       // Конвертируем название в string (const char* → string)
+
        std::string nameStr(reinterpret_cast<const char*>(productName));
 
-       // Форматируем цену
+
        std::cout << "Product ID: " << id << "\n"
                  << "Name: " << nameStr << "\n"
                  << "Price: $" << std::fixed << std::setprecision(2) << price << std::endl;
