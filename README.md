@@ -2,7 +2,18 @@
 ### What is it?
 #### A simple C++ program that can be used to scan barcodes with a camera
 
-### How to use it?
+### How to use it? (Use GUI):
+```bash
+cd barcode_desktop_app
+mkdir build
+cd build
+cmake ..
+make
+./barcode_desktop_app
+```
+
+### How to use it? (Use Termial):
+
 #### Create a database and fill it out
 ```bash
 sqlite3 products.db
@@ -45,7 +56,7 @@ Price: $15.00
 ```
 
 ### Planned updates:
-- Creating a graphical interface for creating and scanning barcodes for the desktop version
+- Add to the GUI version the ability to use the camera to get a barcode image
 - Creating an app on Android and IOS
 
 
